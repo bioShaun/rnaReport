@@ -347,9 +347,10 @@ def create_pdf_report(generate_report_path, part):
 
     if not os.path.exists(pdf_template_path):
         os.makedirs(pdf_template_path)
-    with open(os.path.join(pdf_template_path, 'mRNA_report.tex'), 'w+') as f:
+    with open(os.path.join(pdf_template_path,
+                           'analysis_report.tex'), 'w+') as f:
         f.write(template.render(pdf_param_dict))
     print '-------------------------'
     print 'pdf report tex file done!'
     print '-------------------------'
-    run_tex(tex_path=os.path.join(pdf_template_path, 'mRNA_report.tex'))
+    run_tex(tex_path=os.path.join(pdf_template_path, 'analysis_report.tex'))

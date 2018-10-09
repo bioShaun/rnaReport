@@ -37,4 +37,6 @@ if __name__ == '__main__':
             args.mRNA_report_path, analysis_modules)
 
     if args.pdf:
-        pdf_report.create_pdf_report(args.mRNA_report_path, args.part)
+        pdf_report.create_pdf_report(
+            os.path.abspath(args.mRNA_report_path),
+            args.part)
