@@ -110,8 +110,8 @@ for key, value in enrichment_analysis_path.items():
 
 # fastqc part
 fastqc_analysis_path = dict(
-    gc_barplot_path='gc_plot/gc_distribution.line.pdf.png',
-    reads_quality_path='reads_quality_plot/reads_quality.bar.pdf.png',
+    gc_barplot_path='gc_plot/gc_distribution.line.report.png',
+    reads_quality_path='reads_quality_plot/reads_quality.bar.report.png',
     qc_table_path='fastqc_general_stats.txt')
 
 for key, value in fastqc_analysis_path.items():
