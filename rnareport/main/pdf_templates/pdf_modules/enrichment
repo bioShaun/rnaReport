@@ -33,17 +33,17 @@ GOseq\cite{goseq}（Young et al, 2010）基于 Wallenius 非中心超几何分�
 \\
 \begin{figure}[H]
 \begin{minipage}[b]{0.3\linewidth}
-\includegraphics[scale=0.06]{\VAR{dag_bp_path}}
+\includegraphics[scale=0.2]{\VAR{dag_bp_path}}
 \caption{GO DAG图(BP)}\label{fig:graph}
 \end{minipage}
 \hspace{0.2cm}
 \begin{minipage}[b]{0.3\linewidth}
-\includegraphics[scale=0.06]{\VAR{dag_cc_path}}
+\includegraphics[scale=0.2]{\VAR{dag_cc_path}}
 \caption{GO DAG图(CC)}\label{fig:graph}
 \end{minipage}
 \hspace{0.2cm}
 \begin{minipage}[b]{0.3\linewidth}
-\includegraphics[scale=0.06]{\VAR{dag_mf_path}}
+\includegraphics[scale=0.2]{\VAR{dag_mf_path}}
 \caption{GO DAG图(MF)}\label{fig:graph}
 \end{minipage}
 \end{figure}
