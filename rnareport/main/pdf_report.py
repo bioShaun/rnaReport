@@ -33,7 +33,7 @@ def cut_overlong_table(row_list, max_len=int(pdf_settings['max_cell_len'])):
     return row_list
 
 
-def three_line_list(input_path, colunms, split='\t'):
+def three_line_list(input_path, colunms, split='\t', limited_rows=True):
     '''
     param:
     input_path: each analysis part's table path
@@ -46,7 +46,7 @@ def three_line_list(input_path, colunms, split='\t'):
             thead = data[0]
             table_cols = len(thead.strip().split(split))
             tbody = data[1:]
-            if len(tbody) > int(pdf_settings['table_rows']):
+            if len(tbody) > int(pdf_settings['table_rows']) and limited_rows:
                 tbody = tbody[:int(pdf_settings['table_rows'])]
 
             if table_cols < colunms:
@@ -165,7 +165,8 @@ def enrichment_analysis_part(generate_report_path, part):
 def fastqc_analysis_part(generate_report_path, part):
     fastqc_analysis_path = pdf_analysis_path['fastqc']
     check_file(fastqc_analysis_path, generate_report_path, part)
-    qc_list = three_line_list(fastqc_analysis_path['qc_table_path'], colunms=6)
+    qc_list = three_line_list(fastqc_analysis_path['qc_table_path'], colunms=6,
+                              limited_rows=False)
 
     fastqc_dict = dict(
         qc_begin=qc_list[0], qc_head=qc_list[1], qc_body=qc_list[2:],
@@ -266,7 +267,8 @@ def check_analysis_part(generate_report_path, analysis_part,
         analysis_dict = func(generate_report_path, part)
     else:
         analysis_dict = part_dict
-        print '---{analysis_module} analysis part missing---'.format(analysis_module=label)
+        print '---{analysis_module} analysis part missing---'.format(
+            analysis_module=label)
 
     return analysis_dict
     # pdf_param_dict.update(analysis_dict)
